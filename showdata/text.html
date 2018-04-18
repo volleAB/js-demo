@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>自定义滚动条</title>
+	<style type="text/css">
+	#parent{
+		width: 600px;
+		height: 20px;
+		margin: 20px auto;
+		background: #ccc;
+		position: relative;
+	}
+	#div1{
+		width: 20px;
+		height: 20px;
+		background: red;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	#div2{
+		width: 400px;
+		height: 300px;
+		border:1px solid #000;
+		position: relative;
+		overflow: hidden;
+	}
+	#div3{
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload=function (){
+		var oDiv=document.getElementById('div1');
+		var oDiv2=document.getElementById('div2');
+		var oDiv3=document.getElementById('div3');
+		var oParent=document.getElementById('parent');
+
+		var disX=0;
+		var disY=0;
+		document.onmousedown=function (ev){
+			var oEvent=ev||event;
+			disX=oEvent.clientX-oDiv.offsetLeft;
+			document.onmousemove=function (ev){
+			var oDiv=document.getElementById('div1');
+			var oParent=document.getElementById('parent');
+			var oEvent=ev||event;
+			var l=oEvent.clientX-disX;
+			if(l<0){
+				l=0;
+			}
+			else if(l>oParent.offsetWidth-oDiv.offsetWidth){
+				l=oParent.offsetWidth-oDiv.offsetWidth;
+			}
+			oDiv.style.left=l+'px';
+			var scale=l/(oParent.offsetWidth-oDiv.offsetWidth);
+			document.title=scale;
+			oDiv3.style.top=-scale*(oDiv3.offsetHeight-oDiv2.offsetHeight)+'px';
+			}
+			document.onmouseup=function (){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+			return false;
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="parent">
+		<div id="div1"></div>
+	</div>
+	<div id="div2">
+		<div id="div3">I know just how to whisper and I know just how to cry.
+我明白如何轻声耳语，亦明白如何放声哭喊
+I know just where to find the answers and I know just how to lie.
+我明白如何找寻谜底，亦明白如何编造谎言
+I know just how to fake it and I know just how to scheme.
+我明白如何虚幻假装，亦明白如何策划阴谋
+I know just when to face the truth and then I know just when to dream.
+我知道何时该清醒面对真相，亦知道何时迷醉活在梦中
+And I know just where to touch you and I know just what to prove.
+now just how to whisper and I know just how to cry.
+我明白如何轻声耳语，亦明白如何放声哭喊
+I know just where to find the answers and I know just how to lie.
+我明白如何找寻谜底，亦明白如何编造谎言
+I know just how to fake it and I know just how to scheme.
+我明白如何虚幻假装，亦明白如何策划阴谋
+I know just when to face tnow just how to whisper and I know just how to cry.
+我明白如何轻声耳语，亦明白如何放声哭喊
+I know just where to o scheme.
+我明白如何虚幻假装，亦明白如何策划阴谋where to find the answers and I know just how to lie.
+我明白如何找寻谜底，亦明白如何编造谎言
+I know just how to fake it
+I know just when to face t</div>
+	</div>
+</body>
+</html>
