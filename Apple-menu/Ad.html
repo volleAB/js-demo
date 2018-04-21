@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AD</title>
+	<style type="text/css">
+	body { margin: 0;padding: 0;background-color: #999999; }
+	#ad{ width: 800px;margin: 0 auto;display: none;position: relative;overflow: hidden; }
+	#adcon { width: 100%;height: 400px; }
+	</style>
+</head>
+<body>
+<div id="ad">
+	<img id="adcon" src="./images/AD.jpg" width="960" height="385">
+</div>
+</body>
+<script type="text/javascript">
+	var oAd = document.getElementById('ad');
+	var oAdcon = document.getElementById('adcon')
+	var h = 0;
+	var step = 5;
+	var maxH = oAdcon.height;
+
+	function adDown() {
+		if(h<maxH){
+			h+=step;
+			oAd.style.height = h + 'px';
+			oAd.style.display = 'block';
+			setTimeout(adDown,10);
+		}
+		else{			
+			setTimeout(adUp,3000);
+			}
+	}
+	function adUp(){
+	if(h>0){
+		h-=step;
+		oAd.style.height = h +'px';
+		setTimeout(adUp,1);
+		}
+	}
+	setTimeout(adDown,3000);
+</script>
+</html>
