@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>star</title>
+	<style type="text/css">
+		body,ul,li {
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			list-style-type: none;
+		}
+		.rating {
+			width: 150px;
+			height: 26px;
+			margin: 100px auto;
+		}
+		.rating-item {
+		 	width: 30px;
+		 	height: 30px;
+		 	float: left;
+		 	background: url(./images/star.png) no-repeat;
+		 	cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+<ul id="rating" class="rating">
+	<li class="rating-item" title="很不好"></li>
+	<li class="rating-item" title="不好"></li>
+	<li class="rating-item" title="一般"></li>
+	<li class="rating-item" title="好"></li>
+	<li class="rating-item" title="很好"></li>
+</ul>
+<script type="text/javascript">
+	var num = 1;
+	var n;
+	var orat = document.getElementById('rating');
+	var item = document.getElementsByClassName('rating-item');
+	console.log(item.length)
+	var lightOn = function (num) {
+		if(num >= 0){
+			for(var i = 0; i <= num; i++) {
+				item[i].style['background-position'] = -2+'px';
+			}
+		}
+		else{
+			for(var i = 0; i <= 4; i++) {
+				item[i].style['background-position'] = '';
+			}
+		}
+	}
+
+	//初始化
+
+	lightOn(num);
+
+	//事件绑定
+
+	for (var i = 0; i < item.length; i++) {
+		item[i].index = i;
+		item[i].onmouseover = function () {
+			lightOn(this.index);
+		}
+		item[i].onclick = function () {
+			n = this.index;
+			lightOn(this.index);
+		}
+	}
+
+	orat.onmouseout = function () {
+		lightOn(n);
+	}
+
+
+</script>
+</body>
+</html>
