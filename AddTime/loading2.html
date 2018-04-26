@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>loading</title>
+	<style type="text/css">
+		img {
+			width: 100%;
+		}
+		.loading {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 100;
+			background: #ffffff;
+		}
+		.loading .pic {
+			width: 20%;
+			height: 60px;
+			margin-left: -30px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+		.loading i {
+			width: 6px;
+			height: 50px;
+			margin-left: 10px;
+			float: left;
+			transform: scaleY(0.4);
+			background-color: green;
+			animation: loading 1.2s infinite;
+			display: block;
+		}
+		@keyframes loading{
+			0%,40%,100%{transform: scaleY(0.4);}
+			20%{transform: scaleY(1);}
+		}
+		.loading i:nth-child(1) {
+			animation-delay: 0.1s;
+		}
+		.loading i:nth-child(2) {
+			animation-delay: 0.2s;
+		}
+		.loading i:nth-child(3) {
+			animation-delay: 0.3s;
+		}
+		.loading i:nth-child(4) {
+			animation-delay: 0.4s;
+		}
+		.loading i:nth-child(5) {
+			animation-delay: 0.5s;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div class="loading">
+	<div class="pic">
+		<i></i>
+		<i></i>
+		<i></i>
+		<i></i>
+		<i></i>
+	</div>
+</div>
+<img src="https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=6ba54520f7f2b211fb2e834efa816511/bd315c6034a85edff62cdd7045540923dc5475c4.jpg">
+<img src="https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=9be5ad4e6f2762d09f3ea2bf90ec0849/5243fbf2b21193138277eddd69380cd791238da2.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525267528&di=aef361c698a33b18af81e53b7f301ba0&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D75cbc008692762d09433acfcc885628f%2Ff603918fa0ec08fa8d1a6c8c53ee3d6d55fbda87.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524672824640&di=2877b7f803f81d55d05df8c51a7708c2&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D413573b4ae0f4bfb98dd96176b261285%2Ffaedab64034f78f0340186d873310a55b3191c96.jpg">
+<img src="https://juniperphoton.net/myersplash/wallpapers/20180426.jpg">
+<img src="https://images.unsplash.com/photo-1524596433557-f93715ac8f93?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjIxNTV9&s=3a6190f4670ffe059873b677f5507698">
+<img src="https://images.unsplash.com/photo-1524507390346-633e7cabc14b?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjIxNTV9&s=eb32b45b10fe0df8e44f5c0ba3721870">
+<img src="https://images.unsplash.com/photo-1524592987536-9f9299a2291a?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjIxNTV9&s=d66460a1defb9cee52d2860250fa8595">
+<script type="text/javascript">
+	$(".loading .pic").animate({ width:"100%" },100,function (){
+		$(".loading").fadeOut();
+	})
+</script>
+</body>
+</html>

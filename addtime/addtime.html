@@ -24,9 +24,12 @@
 			margin: auto;
 		}
 	</style>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">
 		document.onreadystatechange = function () {
-			
+			if(document.readyState == "complete") {
+				$(".loading").fadeOut();
+			}
 		}
 	</script>
 </head>
@@ -37,5 +40,6 @@
 <img src="https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=9be5ad4e6f2762d09f3ea2bf90ec0849/5243fbf2b21193138277eddd69380cd791238da2.jpg">
 <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525267528&di=aef361c698a33b18af81e53b7f301ba0&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D75cbc008692762d09433acfcc885628f%2Ff603918fa0ec08fa8d1a6c8c53ee3d6d55fbda87.jpg">
 <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524672824640&di=2877b7f803f81d55d05df8c51a7708c2&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D413573b4ae0f4bfb98dd96176b261285%2Ffaedab64034f78f0340186d873310a55b3191c96.jpg">
+
 </body>
 </html>
