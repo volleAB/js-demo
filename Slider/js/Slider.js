@@ -9,6 +9,7 @@ var aDots = document.getElementById('control').getElementsByTagName('li');
 var aImg = oItems.getElementsByTagName('img');
 var index = null;
 //图片切换函数
-function (pre,mext){
-	oItems.style.width= aImg[0].offsetWidth * aImg.length + 'px';
-}
+oItems.style.width= aImg[0].offsetWidth * aImg.length + 'px';
+// function (pre,mext){
+	
+// }
