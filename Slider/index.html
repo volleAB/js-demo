@@ -19,20 +19,14 @@
 <!-- Carousel -->
 <div id="carousel">
 	<!-- Buttons -->
-	<div class="pre-cover">
+	<div id="pre-cover">
 		<div id="pre"></div>
 	</div>
-	<div class="next-cover">
+	<div id="next-cover">
 		<div id="next"></div>
 	</div>
 	<!-- Wrapper for slides -->
 	<div id="caro-items">
-		<div class="item" >
-			<img src="./img/5.jpg" alt="five">
-			<div class="carousel-caption">
-	        	Fifth slide
-	      	</div>
-		</div>
 		<div class="item">
 			<img src="./img/1.jpg" alt="one">
 			<div class="carousel-caption">
@@ -54,19 +48,13 @@
 		<div class="item">
 			<img src="./img/4.jpg" alt="four">
 			<div class="carousel-caption">
-	        	Fourth
+	        	Fourth slide
 	      	</div>
 		</div>
 		<div class="item">
 			<img src="./img/5.jpg" alt="five">
 			<div class="carousel-caption">
 	        	Fifth slide
-	      	</div>
-		</div>
-		<div class="item">
-			<img src="./img/1.jpg" alt="one">
-			<div class="carousel-caption">
-	        	First silde
 	      	</div>
 		</div>
 	</div>
@@ -89,8 +77,6 @@
 	var aBody =	document.getElementsByTagName('body');
 	aBody[0].style.height = backH + 'px';
 	aBody[0].style.background = "linear-gradient(to bottom right, #a8edea, #fed6e3)";
-
-	//Slider
 	loading('loading','load-img');
 </script>
 </body>
