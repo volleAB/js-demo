@@ -84,7 +84,7 @@ oPre.onclick = function(){
 function autoplay(){
     timer = setInterval(function(){
       oNext.onclick();
-    },2500)
+    },5000)
 }
 
 function stopautoplay(){
