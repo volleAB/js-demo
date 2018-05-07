@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3D翻转</title>
+	<style type="text/css">
+	.Box{
+	    width: 200px;
+	    height: 100px;
+	    margin-top: -100px;
+	    margin-left: -200px;
+	    top: 50%;
+	    left: 50%;
+	    position: absolute; 
+	    transform-style: preserve-3d;
+	    transform: perspective(700px) rotateY(90deg) rotateX(180deg);
+	}
+	.Box div{
+	    width: 150px;
+	    height: 150px;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    box-shadow: 10px 10px 150px #5fbdff;
+	    text-align: center;
+	}
+	.left {
+		transform: rotateZ(-180deg) translateZ(75px);
+	}
+	.right {
+		transform: rotateZ(-180deg) translateZ(-75px);
+	}
+	.bottom{
+	    transform: rotateX(90deg) rotateZ(-90deg) translateZ(75px);
+	}
+	.front{
+	    transform: rotateY(270deg) rotateZ(180deg) translateZ(75px);
+	}
+	</style>
+</head>
+<body>
+<div id="box" class="Box">
+	<div class="left">触碰翻转(left)</div>
+    <div class="right">触碰翻转(right)</div>
+    <div class="front">触碰翻转(front)</div>
+    <div class="bottom">触碰翻转(bottom)</div>
+</div>
+<script src="./js/Flipping.js"></script>
+<script type="text/javascript">
+	Flipping('box','up',.8);
+</script>
+</body>
+</html>

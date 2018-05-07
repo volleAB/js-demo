@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>fresh</title>
+	<style type="text/css">
+		.img_box {
+			width: 600px;
+			height: 320px;
+			margin-top: -160px;
+			margin-left: -300px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			overflow: hidden;
+		}
+		.img_box img {
+			width: 600px;
+			height: 320px;
+		}
+		.img_txt {
+			width: 600px;
+			height: 50px;
+			bottom: 0;
+			position: absolute;
+			background: rgba(0, 0, 0, .6);
+			color: #ffffff;
+		}
+		.right {
+			width: 420px;
+			height: 320px;
+			position: absolute;
+			top: 0;
+			left: -290px;
+			transform: skewX(-45deg);
+			transition: all .8s;
+			background-image: -webkit-linear-gradient(0deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.6),hsla(0,0%,100%,0));
+		}
+		.img_box:hover .right{
+			left: 400px;
+		}
+	</style>
+</head>
+<body>
+<div class="img_box">
+	<a href="#">
+		<img src="./img/fresh.jpg">
+	</a>
+	<div class="img_txt">
+		<p>My fresh one</p>
+	</div>
+	<i class="right"></i>
+</div>
+</body>
+</html>

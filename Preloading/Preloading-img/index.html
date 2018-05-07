@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>图片预加载之无序加载</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		img {
+			width: 1200px;
+			height: 540px;
+		}
+		.loading {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 100;
+			background: #ffffff;
+		}
+		.loading .pic {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			font-size: 30px;
+			text-align: center;
+			line-height: 100px;
+		}
+		.loading .pic span {
+			display: block;
+			width: 80px;
+			height: 80px;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			border-radius: 50%;
+			box-shadow: 0 3px 0 #666;
+			animation: rotate 1s infinite linear;
+		}
+		@keyframes rotate {
+			0%{ transform: rotate(0deg); }
+			100%{ transform: rotate(360deg); }
+		}
+		a {
+			text-decoration: none;
+		}
+		.box {
+			text-align: center;
+		}
+		.btn {
+			height: 30px;
+			padding: 0 10px;
+			margin-right: 50px;
+			border: 1px solid #ccc;
+			display: inline-block;
+			line-height: 30px;
+			background-color: #fff;
+			color: #333;
+		}
+		.btn:hover {
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+<div class="loading">
+	<div class="pic">
+		<span></span>
+		<b>0%</b>
+	</div>
+</div>
+<div class="box">
+	<img src='https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=6ba54520f7f2b211fb2e834efa816511/bd315c6034a85edff62cdd7045540923dc5475c4.jpg' alt="pic" id="img" width="1200px">
+	<p>
+		<a href="javascript:;" class="btn" data-control="prev">上一页</a>
+		<a href="javascript:;" class="btn" data-control="next">下一页</a>
+	</p>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+		// 一张图片缓存问题的解决方案
+		// var img = new Image();
+		// img.onload = function(){};
+		// img.src = "";
+		var img = $("img");
+		var imgs = [
+			'https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=6ba54520f7f2b211fb2e834efa816511/bd315c6034a85edff62cdd7045540923dc5475c4.jpg',
+			'https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=9be5ad4e6f2762d09f3ea2bf90ec0849/5243fbf2b21193138277eddd69380cd791238da2.jpg',
+			'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525267528&di=aef361c698a33b18af81e53b7f301ba0&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D75cbc008692762d09433acfcc885628f%2Ff603918fa0ec08fa8d1a6c8c53ee3d6d55fbda87.jpg',
+			'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524672824640&di=2877b7f803f81d55d05df8c51a7708c2&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D413573b4ae0f4bfb98dd96176b261285%2Ffaedab64034f78f0340186d873310a55b3191c96.jpg',
+			'https://juniperphoton.net/myersplash/wallpapers/20180426.jpg',
+			'https://images.unsplash.com/photo-1524596433557-f93715ac8f93?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjIxNTV9&s=3a6190f4670ffe059873b677f5507698',
+			'https://images.unsplash.com/photo-1524507390346-633e7cabc14b?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjIxNTV9&s=eb32b45b10fe0df8e44f5c0ba3721870',
+			'https://images.unsplash.com/photo-1524592987536-9f9299a2291a?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjIxNTV9&s=d66460a1defb9cee52d2860250fa8595',
+			'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525502923498&di=e7fce6f5ef58a07b56a0f41b1cbace3e&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ff3d3572c11dfa9ec8c2d744c6ed0f703918fc16d.jpg',
+		]
+		var num = 0;
+		var index = 0,
+			len = imgs.length;
+		//加载动画
+		img.each(function(i){
+			var oImg = new Image();
+			oImg.onload = function(){
+				oImg.onload=null;
+				num++ ;
+				var len=img.length;
+				$(".loading b").html(parseInt(num/len*100)+"%");	
+				if(num >= i){
+					$(".loading").fadeOut();
+				}
+			}
+			oImg.src = imgs[index];
+		});
+
+		//上下切换
+		$('.btn').on('click', function () {
+			if('prev' === $(this).data('control')) { //上一张
+				index = Math.max(0, --index);
+				$("#img").attr("src",imgs[index]);
+			}
+			else { //下一张
+				index = Math.min(len - 1, ++index);
+				console.log()
+				$("#img").attr("src",imgs[index])
+			}
+			document.title = (index + 1) + '/' + len;
+		})
+	})
+	</script>
+</html>
