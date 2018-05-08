@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>3D纸片翻转</title>
+	<style type="text/css">
+	.box {
+		width: 300px;
+		height: 420px;
+		padding: 30px;
+		margin: 50px auto;
+		position: relative;
+		background: linear-gradient(to bottom right, #777, #000)
+	}
+	.list {
+		position: absolute;
+		backface-visibility: hidden;
+		transform: translateX(0);
+	}
+	.list img {
+		width: 300px;
+		height: 420px;
+	}
+	.in {
+		animation: toleft 225;
+	}
+	@keyframes toleft {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(-90deg) scale(.9); }
+	}
+	</style>
+</head>
+<body>
+<div id="box" class="box">
+	<div class="list front">
+		<img src="./img/front.png">
+	</div>
+	<div class="list back">
+		<img src="./img/back.jpg">
+	</div>
+</div>
+<script src="./js/Flipping2.js"></script>
+<script type="text/javascript">
+	trunto('list');
+</script>
+</body>
+</html>

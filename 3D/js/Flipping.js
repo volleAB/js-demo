@@ -1,4 +1,4 @@
-
+// 3D盒子翻转
 function Flipping(box,direction,time) {
 	var oBox = document.getElementById(box);
 	var time = time;
