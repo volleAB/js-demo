@@ -10,7 +10,12 @@
 		padding: 30px;
 		margin: 50px auto;
 		position: relative;
-		background: linear-gradient(to bottom right, #777, #000)
+		background: linear-gradient(to bottom right, #777, #000);
+		cursor: pointer;
+	}
+	.viewport-flip {
+		perspective: 1000px;
+		position: absolute;
 	}
 	.list {
 		position: absolute;
@@ -21,27 +26,35 @@
 		width: 300px;
 		height: 420px;
 	}
-	.in {
-		animation: toleft 225;
+	#box .in {
+		animation: toright 225ms ease-in-out;
+	}
+	#box .out {
+		transform: rotateY(-90deg) scale(.9);
+		animation: toleft 175ms ease-in-out;
 	}
 	@keyframes toleft {
-    from { transform: rotateY(0); }
-    to { transform: rotateY(-90deg) scale(.9); }
+    	from { transform: rotateY(0); }
+    	to { transform: rotateY(-90deg) scale(.9); }
+	}
+	@keyframes toright {
+    	from { transform: rotateY(90deg) scale(.9); }
+    	to { transform: rotateY(0); }
 	}
 	</style>
 </head>
 <body>
-<div id="box" class="box">
-	<div class="list front">
+<div id="box" class="box viewport-flip">
+	<div class="list out">
 		<img src="./img/front.png">
 	</div>
-	<div class="list back">
+	<div class="list">
 		<img src="./img/back.jpg">
 	</div>
 </div>
 <script src="./js/Flipping2.js"></script>
 <script type="text/javascript">
-	trunto('list');
+	trunto('box','list');
 </script>
 </body>
 </html>
