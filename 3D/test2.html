@@ -4,10 +4,19 @@
 	<meta charset="utf-8">
 	<title>test2</title>
 	<style type="text/css">
-		
+	:root {
+		--1: transparent;
+	}
+	.box {
+		--1: #309;
+	}
+	body {
+		background: var(--1, #cd0000);
+	}
 	</style>
 </head>
 <body>
+<div class="box"></div>
 </body>
 <script type="text/javascript">
 	var arr = new Array(3);

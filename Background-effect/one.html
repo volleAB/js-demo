@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<title>Insert title here</title> 
+<style type="text/css"> 
+.layer { 
+width:400px; 
+height:400px; 
+background-color:#FF7373;  
+} 
+.A { 
+position: absolute; 
+top: 23px; 
+left: 10px; 
+} 
+.B { 
+position: absolute; 
+top: 223px; 
+left: 516px; 
+} 
+.C { 
+position: absolute; 
+top: 384px; 
+left: 1000px; 
+} 
+</style> 
+</head> 
+<body> 
+<div class="layer A"></div> 
+<div class="layer B"></div> 
+<div class="layer C"></div> 
+</body> 
+<script type="text/javascript"> 
+var items = document.getElementsByClassName("layer");
+document.addEventListener('mousemove', function (evt){ 
+var x = evt.clientX;
+var y = evt.clientY;
+//console.log(x); 
+var winWidth = window.innerWidth; 
+var winHeight = window.innerHeight; 
+var halfWidth = winWidth / 2; 
+var halfHeight = winHeight / 2; 
+console.log(halfWidth,halfHeight)
+var rx = x - halfWidth; 
+var ry = halfHeight - y; 
+var length = items.length; 
+var max = 30; 
+for (var i = 0 ; i < length ; i++) { 
+var dx = (items[i].getBoundingClientRect().width/max)*(rx / -halfWidth); 
+var dy = (items[i].getBoundingClientRect().height/max)*(ry / halfHeight); 
+items[i].style['transform'] = items[i].style['-webkit-transform'] = 'translate('+dx+'px,'+dy+'px)'; 
+} 
+}, false); 
+</script> 
+</html> 
