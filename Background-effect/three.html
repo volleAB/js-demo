@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>three</title>
+	<style type="text/css">
+		.Bou {
+			width: 50%;
+			height: 400px;
+			margin: 40px auto;
+			background: linear-gradient(to bottom right, #a18cd1 , #fbc2eb);
+		}
+	</style>
+</head>
+<body>
+<div class="Bou"></div>
+</body>
+<script type="text/javascript">
+	var oBou = document.getElementsByClassName('Bou');
+	var loa = oBou[0].getBoundingClientRect();
+	console.log(loa.top,loa.left)
+</script>
+</html>
