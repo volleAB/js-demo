@@ -15,7 +15,6 @@ function trunto(id1,id2) {
 			}
 		}*/			//有多出来的东西0.0
 		for(var i = 0; i < 2; i++) {
-			oList.index = oList[i]
 			if(oList[i].classList.contains('out')) {
 				oBack = oList[i];
 			}

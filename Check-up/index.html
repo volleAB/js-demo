@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Check-up</title>
+	<style type="text/css">
+		form {
+			position: relative;
+			width: 440px;
+			height: 400px;
+			margin: 100px auto;
+		}
+		.text {
+			padding: 4px 8px;
+			border:1px solid #333333;
+			border-radius: 4px;
+		}
+		.msg {
+			display: none;
+			position: absolute;
+			left: 300px;
+			width: 315px;
+			font-size: 12px;
+			color: #888888;
+		}
+		#count {
+			margin-left: 20px;
+			font-size: 14px;
+			font-weight: normal;
+			color: #888888;
+		}
+		.ok {
+			width: 30px;
+			height: 30px;
+			background: url(ok.png) no-repeat center;
+			background-size:30px 30px;
+			display: inline-block;
+		}
+		em {
+			display: inline-block;
+			width: 50px;
+			height: 20px;
+			border: 1px solid #ffffff;
+			background: #FFA500;
+			color: #ffffff;
+			text-align: center;
+		}
+		.submitBtn {
+			width: 180px;
+			height: 60px;
+			padding: 10px 16px;
+			margin: 20px 0 0 100px;
+			border: 1px solid #FF8C00;
+			border-radius: 4px;
+			font-size: 20px;
+			color: #ffffff;
+			background: #FF8C00;
+			cursor: pointer;
+		}
+		.submitBtn:hover {
+			border: 1px solid skyblue;
+			background: skyblue;
+		}
+	</style>
+</head>
+<body>
+<form method="www.mukewang.com">
+	<div>
+		<label><span> 会员名： </span><input type="text" name="" class="text" style="margin-left: 14px"></label>
+		<p class="msg" style="top: -14px"></p>
+	</div>
+	<div>
+		<label><span><b id="count"></b></span></label>
+	</div>
+	<div style="margin-top: 10px;">
+		<label><span> 登录密码： </span><input type="password" name="" class="text"></label>
+		<p class="msg" style="top: 50px"><i class="ati"></i>5-25个字符，一个汉字为两个字符，推荐使用中文会员名</p>
+	</div>
+	<div style="margin: 3px 0 20px 80px">
+		<label><span></span><em class="active">弱</em><em>中</em><em>强</em></label>
+	</div>
+	<div style="margin-bottom: 20px;">
+		<label><span>确认密码：</span><input type="password" name="" class="text" disabled="" style="margin-left: 4px"><p class="msg" style="top: 120px"><i class="ati"></i>请在输入一次</p></label>
+	</div>
+	<div>
+		<label><span>验证码：</span><input type="text" name="" class="text" style="width: 50px;"></label>
+	</div>
+	<div><input class="submitBtn" type="submit" name="" value="同意协议并注册"></div>
+</form>
+<script src="script.js"></script>
+</body>
+</html>
