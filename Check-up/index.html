@@ -36,6 +36,9 @@
 			background-size:30px 30px;
 			display: inline-block;
 		}
+		.active {
+			background: #00FA9A;
+		}
 		em {
 			display: inline-block;
 			width: 50px;
@@ -74,16 +77,16 @@
 	</div>
 	<div style="margin-top: 10px;">
 		<label><span> 登录密码： </span><input type="password" name="" class="text"></label>
-		<p class="msg" style="top: 50px"><i class="ati"></i>5-25个字符，一个汉字为两个字符，推荐使用中文会员名</p>
+		<p class="msg" style="top: 50px"></p>
 	</div>
 	<div style="margin: 3px 0 20px 80px">
-		<label><span></span><em class="active">弱</em><em>中</em><em>强</em></label>
+		<label><span></span><em>弱</em><em>中</em><em>强</em></label>
 	</div>
 	<div style="margin-bottom: 20px;">
-		<label><span>确认密码：</span><input type="password" name="" class="text" disabled="" style="margin-left: 4px"><p class="msg" style="top: 120px"><i class="ati"></i>请在输入一次</p></label>
+		<label><span>确认密码：</span><input type="password" name="" class="text" disabled="" style="margin-left: 4px"><p class="msg" style="top: 120px">请在输入一次</p></label>
 	</div>
 	<div>
-		<label><span>验证码：</span><input type="text" name="" class="text" style="width: 50px;"></label>
+		<label><span>验证码：</span><input type="text" name="" class="text" style="width: 50px;margin-left: 20px;"></label>
 	</div>
 	<div><input class="submitBtn" type="submit" name="" value="同意协议并注册"></div>
 </form>
