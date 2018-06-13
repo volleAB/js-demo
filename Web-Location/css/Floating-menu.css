@@ -1,0 +1,57 @@
+.level {
+	width: 100%;
+	height: 80px;
+}
+
+#header {
+	background: #6D556C;
+}
+
+.logo {
+	width: 120px;
+	padding: 20px;
+}
+
+.level-item > li {
+	font-size: 24px;
+}
+
+.level-item li > a {
+	padding: 10px 16px;
+	border-radius: 4px;
+	color: #ffffff;
+}
+
+.level-item li > a:hover {
+	background: #4a4a4a;
+	color: #00b89c;
+}
+
+.float-menu {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 240px;
+	height: 180px;
+	z-index: 2;
+}
+
+.float-menu img {
+	width: 100%;
+	border-radius: 8px;
+}
+
+/*下拉栏*/
+
+.drop {
+	display: none;
+	position: absolute;
+	width: 126px;
+	height: 144px;
+	background: #6D556C;
+	z-index: 4;
+}
+
+.drop-down {
+	width: 
+}
