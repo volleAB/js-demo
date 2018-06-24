@@ -37,10 +37,5 @@ oClose.onclick = () => {
 }
 
 oDropdown.onclick = () => {
-	if (oDropdown.classList.contains("is-active")) {
-		oDropdown.classList.remove("is-active");
-	}
-	else {
-		oDropdown.classList.add("is-active");
-	}
+	$("#dropdown").toggleClass('is-active');
 }

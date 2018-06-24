@@ -11,7 +11,7 @@ const promise = (method, url, data) => {
 			error: function(XmlHttpRequest, textStatus, errorThrown) {
 				alert("操作失败!");
 			},
-			success:res => {
+			success: (res) => {
 				resolve(res.showapi_res_body.pagebean.songlist);
 			}
 		});
@@ -40,7 +40,7 @@ const output = () => {
 	con.find('div').addClass('border')
 	// con.find("div").className = 'border';
 }
-console.log("sdad")
+// console.log("sdad")
 // var get_list = () => {
 // 	$.ajax({
 // 		type: 'post',
