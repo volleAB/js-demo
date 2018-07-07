@@ -1,5 +1,6 @@
 var imglist = [];
-var oi = $('.img');
+var o = document.getElementsByTagName('img')[0];
+// var in = $('input');
 
 const promise = (method, url, data) => {
 	return new Promise((resolve, reject) => {
@@ -24,9 +25,11 @@ const jsonData = {
 	"topid": 4
 }
 
-const firstAjax = promise('post', 'http://route.showapi.com/213-4', jsonData)
-	firstAjax.then((res) => {
-		console.log(res.pagebean.songlist, res.pagebean.songlist[0]);
-		oi.src = res.pagebean.songlist[0].albumpic_big;
-		console.log(oi.src)
+const getPic = promise('post', 'http://route.showapi.com/213-4', jsonData)
+	getPic.then((res) => {
+		// console.log(res.pagebean.songlist, res.pagebean.songlist[0]);
+		// oi.src = res.pagebean.songlist[0].albumpic_big;
+		$('.img').attr('src', res.pagebean.songlist[0].albumpic_big);
+		console.log($('.img'),res)
+		// console.log(oi.src);
 	})
