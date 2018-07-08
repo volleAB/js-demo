@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>index</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+html,body {height:100%;}
+body {margin:0px;}
+div {height:100%;}
+h1 {
+            animation-name: fadeInUp;
+            animation-delay: 1.6s;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            transition: all 0.3s ease 0s;
+        }
+        p {
+            animation-name: fadeInUp;
+            animation-delay: 2s;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            transition: all 0.3s ease 0s;
+        }
+        @keyframes fadeInUp {
+            from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+            }
+            to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+            }
+        }
+</style>
+<body>
+<div style="background:#FEE;">
+	<h1>part one</h1>
+	<p>I can tell by the way that he's going on</p>
+</div>
+<div style="background:#EFE;">
+	<h1>part two</h1>
+	<p>I can tell by the way that he's going on</p>
+</div>
+<div style="background:#EEF;">
+	<h1>part three</h1>
+	<p>I can tell by the way that he's going on</p>
+</div>
+<div style="background:red;">
+	<h1>part four</h1>
+	<p>I can tell by the way that he's going on</p>
+</div>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	var body = document.body,
+	html = document.documentElement;
+	// console.log(body, html);
+	var itv, height = document.body.offsetHeight;
+	var page = scrollTop() / height | 0;
+	console.log(page)
+	//窗口大小改变事件
+	addEventListener("resize", onresize, false);
+	onresize();
+	//滚轮事件
+	document.body.addEventListener(
+		"onwheel" in document ? "wheel" : "mousewheel",
+		function(e) {
+			clearTimeout(itv);
+			itv = setTimeout(function() {
+			var delta = e.wheelDelta / 120 || -e.deltaY / 3;
+			//e.wheelDelta是检测鼠标滚动方向	delta
+			page -= delta;
+
+			// var max = (document.body.scrollHeight / height | 0) - 1;
+			// if (page < 0) return page = 0;
+			// if (page > max) return page = max;
+			// console.log(e.wheelDelta, e.deltaY, max);
+			move();
+			}, 100);
+			e.preventDefault();	//该方法将通知 Web 浏览器不要执行与事件关联的默认动作
+		}
+	);
+	//平滑滚动
+	function move() {
+		var value = height * page;
+		var diff = scrollTop() - value;
+		(function callee() {
+			diff = diff / 1.2 | 0;
+			scrollTop(value + diff);
+			if (diff) itv = setTimeout(callee, 16);
+		})();
+	};
+	//resize事件		当窗口大小发生改变时改变滑动的高度
+	function onresize() {
+		height = body.offsetHeight;
+		move();
+	};
+	//获取或设置scrollTop
+	function scrollTop(v) {
+		if (v == null) return Math.max(body.scrollTop, html.scrollTop);
+		else body.scrollTop = html.scrollTop = v;
+	};
+});
+</script>
+</html>

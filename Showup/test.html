@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        .part {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .one {
+            background: #d4fc79;
+        }
+        .two {
+            background: #96e6a1;
+        }
+        .three {
+            background: #84fab0;
+        }
+        .four {
+            background: #8fd3f4;
+        }
+        .text {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 200px;
+            margin-left: -100px;
+            text-align: center;
+            color: #000000;
+        }
+        .menu {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            width: 28px;
+            height: 180px;
+            margin-top: -50px;
+            background: #000;
+        }
+        h1 {
+            animation-name: fadeInUp;
+            animation-delay: 1.6s;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            transition: all 0.3s ease 0s;
+        }
+        p {
+            animation-name: fadeInUp;
+            animation-delay: 2s;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            transition: all 0.3s ease 0s;
+        }
+        @keyframes fadeInUp {
+            from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+            }
+            to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="part one">
+    <div class="text">
+        <h1>part one</h1>
+        <p>Show more information...</p>
+    </div>
+</div>
+<div class="part two">
+    <div class="text">
+        <h1>part two</h1>
+        <p>Show more information...</p>
+    </div>
+</div>
+<div class="part three">
+    <div class="text">
+        <h1>part three</h1>
+        <p>Show more information...</p>
+    </div>
+</div>
+<div class="part four">
+    <div class="text">
+        <h1>part four</h1>
+        <p>Show more information...</p>
+    </div>
+</div>
+<!-- 侧边栏 -->
+<ul class="menu">
+    <li data="1"></li>
+    <li data="2"></li>
+    <li data="3"></li>
+    <li data="4"></li>
+</ul>
+</nav>
+</body>
+</html>
