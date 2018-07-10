@@ -22,7 +22,7 @@ const promise = (method, url, data) => {
     })
 }
 
-var getMyData = promise('get', 'http://127.0.0.1:8070/page', '')
+var getMyData = promise('get', 'http://localhost:8070/page', '')
     .then((res) => {
         console.log(res)
     })
