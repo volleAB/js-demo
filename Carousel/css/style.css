@@ -73,7 +73,7 @@ li {
 	margin-left: -50px;
 }
 
-.carousel:hover .pre{op
+.carousel:hover .pre{
 	margin-left: 0;
 }
 
@@ -107,7 +107,8 @@ li {
 }
 
 .dot .active {
-	background: #ffffff;
+	animation: time 6s 1;
+	/*background: linear-gradient(to bottom right, red , blue);*/
 }
 
 
@@ -120,5 +121,17 @@ li {
 	}
 	to {
 		margin-left: 0;
+	}
+}
+
+@keyframes time {
+	0% {
+		background: linear-gradient(to right, #fff , rgba(255,255,255,0));
+	}
+	50% {
+		background: linear-gradient(to right, #fff , rgba(255,255,255,0.5));
+	}
+	to {
+		background: linear-gradient(to right, #fff , rgba(255,255,255,1));
 	}
 }

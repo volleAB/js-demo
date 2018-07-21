@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<style type="text/css">
+		* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.out {
+  width: 590px;
+  height: 340px;
+  border: 5px solid #000;
+  margin: 50px auto;
+  position: relative;
+}
+
+.out .img li {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.out .num {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  font-size: 0;
+  /*去掉li之间的空格间隙*/
+  text-align: center;
+  width: 100%;
+  /*定位后脱离文档流，没有了默认宽度，所以要加上 宽度 text-align: center才起作用*/
+}
+
+.out .num li {
+  width: 20px;
+  height: 20px;
+  background: #666;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.out .num li.active {
+  background: #a00;
+}
+
+.out .btn {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  width: 30px;
+  height: 60px;
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  display: none;
+  cursor: pointer;
+}
+
+.out:hover .btn {
+  display: block;
+}
+
+.out .left {
+  left: 0;
+}
+
+.out .right {
+  right: 0;
+}
+	</style>
+	<script src="./js/jquery.js"></script>
+</head>
+<body>
+  <div class="out">
+    <ul class="img">
+      <li><a href="#"><img src="images/one.jpg" /></a></li>
+      <li><a href="#"><img src="images/two.jpg" /></a></li>
+      <li><a href="#"><img src="images/three.jpg" /></a></li>
+    </ul>
+    <ul class="num">
+      <!-- <li class="active">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li> -->
+    </ul>
+    <div class="left btn">&lt;</div>
+    <div class="right btn">&gt;</div>
+  </div>
+<script>
+	$(function() {
+  //代码初始化
+  //获取图片的数量
+  //根据图片的数量内部添加li
+  var size = $(".img li").size();
+  for (var i = 1; i <= size; i++) {
+    var li = "<li>" + i + "</li>";
+    $(".num").append(li);
+  }
+
+  //手动控制轮播
+  $(".img li").eq(0).show(); //获取第一张图片
+
+  $(".num li").eq(0).addClass("active"); //给第一张图片添加样式
+  $(".num li").mouseover(function() {
+    $(this).addClass("active").siblings().removeClass("active");
+    //siblings筛选同类元素  removeClass移除样式  addClass添加样式
+
+    var index = $(this).index();
+    i = index; //同步手动与自动的索引值
+    //  alert(index);
+    //  $(".img li").eq(index).fadeIn(500).siblings().fadeOut(500);
+    $(".img li").eq(index).stop().fadeIn(500).siblings().stop().fadeOut(500);
+    //.show()显示 hide() 隐藏   fadeIn淡入      fadeOut淡出
+  })
+
+  //自动控制轮播
+  var i = 0;
+  var timer = setInterval(move, 2500);
+
+  //核心函数 向左移
+  function moveL() {
+    i--;
+    if (i == -1) {
+      i = size - 1;
+    }
+    $(".num li").eq(i).addClass("active").siblings().removeClass("active");
+    $(".img li").eq(i).fadeIn(500).siblings().fadeOut(500);
+  }
+
+  //核心函数 向右移
+  function move() {
+    i++;
+    if (i == size) {
+      i = 0;
+    }
+    $(".num li").eq(i).addClass("active").siblings().removeClass("active");
+    $(".img li").eq(i).fadeIn(500).siblings().fadeOut(500);
+  }
+
+
+  //左按钮点击事件
+  $(".out .left").click(function() {
+    moveL();
+  })
+  //右按钮点击事件
+  $(".out .right").click(function() {
+    move();
+  })
+
+
+
+  //定时器的开始与结束
+  //鼠标移入停止轮播  clearInterval(timer)
+  $(".out").hover(function() {
+    clearInterval(timer);
+  }, function() {
+    //鼠标移出继续轮播
+    timer = setInterval(move, 2500);
+  })
+
+})
+</script>
+</body>
+</html>

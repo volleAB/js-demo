@@ -7,10 +7,10 @@ const promise = (method, url, data) => {
         $.ajax({
             type: method,
             url,
-            // dataType:'jsonp',
-            dataType: 'json',
+            dataType:'jsonp',
+            // dataType: 'json',
             data,
-            // jsonp:'callback',//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
+            jsonp:'callback',//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
             error: function(XmlHttpRequest, textStatus, errorThrown) {
                 console.log(textStatus)
 				alert("操作失败!");
@@ -22,8 +22,11 @@ const promise = (method, url, data) => {
     })
 }
 
-var getMyData = promise('get', 'http://localhost:8070/page', '')
+const data = {
+    "apikey": "0b2bdeda43b5688921839c8ecb20399bt",
+}
+
+var getMyData = promise('POST', 'https://api.douban.com/v2/movie/in_theaters', '')
     .then((res) => {
         console.log(res)
     })
-

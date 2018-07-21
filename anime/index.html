@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>anime</title>
+	<script src="./js/anime.min.js"></script>
+	<style type="text/css">
+		#cssSelector { display: flex;justify-content: center;width: 100vh;height: 97vh;background: linear-gradient(coral 30%, black 30%); }
+		/*.line { width: 40em;height: 40em;background: LightCoral; }*/
+		.el { width: 40em;height: 40em;background: LightSkyBlue; }
+	</style>
+</head>
+<body>
+<div id="cssSelector">
+	<div class="line">
+		<div class="spuare el"></div>
+	</div>
+</div>
+<div id="JSobject">
+  <pre>{"charged":"15%"}</pre> 
+</div>
+<script type="text/javascript">
+	var cssSelector = anime({
+	  targets: '#cssSelector .el',
+	  translateX: 300,
+	  duration: 2000,
+	});
+	var obj = { charged: '0%' };
+
+var JSobject = anime({
+  targets: obj,
+  charged: '100%',
+  round: 1,
+  easing: 'linear',
+  update: function() {
+    var el = document.querySelector('#JSobject pre');
+    el.innerHTML = JSON.stringify(obj);
+  }
+});
+</script>
+</body>
+</html>
