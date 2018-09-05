@@ -22,11 +22,13 @@ const promise = (method, url, data) => {
     })
 }
 
-const data = {
-    "apikey": "0b2bdeda43b5688921839c8ecb20399bt",
-}
+// const data = {
+//     "apikey": "0b2bdeda43b5688921839c8ecb20399bt",
+// }
 
-var getMyData = promise('POST', 'https://api.douban.com/v2/movie/in_theaters', '')
+// https://api.douban.com/v2/movie/in_theaters
+
+var getMyData = promise('get', 'http://59.68.29.67:8000/api/plant', '')
     .then((res) => {
         console.log(res)
     })
