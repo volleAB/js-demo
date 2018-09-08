@@ -19,32 +19,31 @@ var index = 1;
 function animate(offset){
 
 	animated = true;
-    var newLeft = oItems.offsetLeft + offset;
-    var time = 300;     //位移总时间
-    var interval = 30;    //位移间隔时间
-    
-    
-    function go(){
-    	var speed = (newLeft - oItems.offsetLeft)/10;
-    	speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-    	console.log(speed);
-    	if((speed < 0 && oItems.offsetLeft > newLeft)||(speed > 0 && oItems.offsetLeft < newLeft)){   //newLeft目标值
-    		oItems.style.left = oItems.offsetLeft + speed + 'px';
-        	setTimeout(go,interval);  //不止做一次运动（go函数），每隔30毫秒前进一下
-      	}
-      	else{
-        	animated = false;
-        	oItems.style.left = newLeft + 'px';
-        if(newLeft < -4800){
-          oItems.style.left = -960+"px";
-        }
-        if(newLeft > -960){
-          oItems.style.left = -4800+"px";
-        }
+  var newLeft = oItems.offsetLeft + offset;
+  var time = 300;     //位移总时间
+  var interval = 30;    //位移间隔时间
+  
+  
+  function go(){
+  	var speed = (newLeft - oItems.offsetLeft)/10;
+  	speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+  	console.log(speed);
+  	if((speed < 0 && oItems.offsetLeft > newLeft)||(speed > 0 && oItems.offsetLeft < newLeft)){   //newLeft目标值
+  		oItems.style.left = oItems.offsetLeft + speed + 'px';
+      	setTimeout(go,interval);  //不止做一次运动（go函数），每隔30毫秒前进一下
+    	}
+    	else{
+      	animated = false;
+      	oItems.style.left = newLeft + 'px';
+      if(newLeft < -4800){
+        oItems.style.left = -960+"px";
+      }
+      if(newLeft > -960){
+        oItems.style.left = -4800+"px";
       }
     }
-    go();
-	
+  }
+  go();
 }
 
 //小圆点

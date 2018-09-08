@@ -22,8 +22,8 @@ body {
 
 .s-items {
 	position: absolute;
-	transition: all 2s cubic-bezier(0.15, 0.87, 0.37, 1.09);
-	transform: translateY(-440px);
+	top: -440px;
+	/*transition: all 2s cubic-bezier(0.15, 0.87, 0.37, 1.09);*/
 }
 
 .s-img {
@@ -59,8 +59,12 @@ body {
 	width: 12px;
 	height: 12px;
 	margin-top: 10px;
-	border: 1px solid #e3e3e3;
+	border: 1px solid #999999;
 	border-radius: 100%;
 	list-style: none;
-	transform: translateY();
+	cursor: pointer;
+}
+
+.active {
+	background: radial-gradient(#ffffff, #999999);
 }
