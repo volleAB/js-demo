@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		html,
+  body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: "微软雅黑";
+    font-size: 62.5%;
+  }
+
+  .boxDom {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .idDom {
+    width: 100%;
+    height: 100px;
+    background: #666;
+    position: fixed;
+    bottom: 0px;
+  }
+
+  .content {
+    display: inline-block;
+    width: 430px;
+    height: 40px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+  }
+
+  .title {
+    display: inline;
+    font-size: 4em;
+    vertical-align: bottom;
+    color: #fff;
+  }
+
+  .text {
+    border: none;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 2.4em;
+  }
+
+  .btn {
+    width: 60px;
+    height: 30px;
+    background: #f90000;
+    border: none;
+    color: #fff;
+    font-size: 2.4em;
+  }
+
+  span {
+    width: 300px;
+    height: 40px;
+    position: absolute;
+    overflow: hidden;
+    color: #000;
+    font-size: 4em;
+    line-height: 1.5em;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+	</style>
+</head>
+<body>
+    <div class="boxDom" id="boxDom">
+    <div class="idDom" id="idDom">
+        <div class="content">
+            <p class="title">吐槽:</p>
+            <input type="text" class="text" id="text" />
+            <input type="button" class="btn" id="btn" value="发射">
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(function() {
+   //获取输入框
+  var $txt = $('#text');
+  //给按钮添加点击事件
+  $('#btn').click(function() {
+    //如果内容为空,不执行
+    if( $txt.val().trim() === '' ) {
+      return;
+    }
+
+    $('<span></span>')
+      .text( $txt.val() ) 
+      .css({
+        color: 'red',             //颜色固定为红色
+        left: $(window).width(), 
+        top: 400                 //top固定为400
+      })
+      .animate({
+        left: -200
+      }, 10000, 'linear', function() {
+        $(this).remove();    //移除span元素
+      })
+      .appendTo( '#boxDom' );
+       // 清空内容
+      $txt.val('');
+  });
+  })
+</script>
+</html>

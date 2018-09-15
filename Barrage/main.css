@@ -1,0 +1,104 @@
+body,ul {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 100%;
+	height: 100vh;
+}
+
+.airport {
+	box-sizing: border-box;
+	height: 80vh;
+}
+
+.line {
+	position: relative;
+	width: 100%;
+	height: 20vh;
+}
+
+.line span {
+	position: absolute;
+	transition: all ease;
+}
+
+.launcher {
+	box-sizing: border-box;
+	position: relative;
+	height: 20vh;
+	background-color: #666;
+}
+
+.choice {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	height: 26px;
+}
+
+.choice span {
+	margin-left: 20px;
+	font-weight: bold;
+}
+
+ul {
+	display: inline-block;
+	width: 200px;
+	height: 20px;
+}
+
+ul li {
+	float: left;
+	padding: 2px;
+	margin-left: 10px;
+	border-radius: 8px;
+	background-color: rgba(255, 206, 84, 0.8);
+	list-style: none;
+	cursor: pointer;
+}
+
+input {
+	box-sizing: border-box;
+	width: 50%;
+	height: 30px;
+	padding: 18px 10px;
+	margin: 20px 0 0 80px;
+	border: none;
+	border-radius: 8px;
+	font-size: 20px;
+}
+
+input:focus {
+	outline: none;
+}
+
+button {
+	position: absolute;
+	right: 40px;
+	bottom: 10px;
+	width: 60px;
+	height: 40px;
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0 0 12px 1px skyblue;
+	background-color: skyblue;
+	color: #fff;
+	cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.9);
+  background-color: #2bafe4;
+  box-shadow: 0 2px 25px #2bafe4;
+}
+
+button:focus {
+	outline: none;
+}
+
+.active {
+	background-color: #ffffff;
+}
+

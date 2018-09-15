@@ -1,0 +1,21 @@
+body {
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	background-color: rgb(38, 145, 201);
+}
+
+.container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.sheep {
+	position: absolute;
+	bottom: 80px;
+	width: 154px;
+	height: 117px;
+	background-image: url(sheep-ani.png);
+	background-repeat: no-repeat;
+}

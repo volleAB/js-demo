@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+    	body {
+    		width: 100%;
+    		height: 100vh;
+    	}
+    	.go {
+    		position: absolute;
+    		width: 50px;
+    		height: 50px;
+    		background-color: skyblue;
+    		/*-webkit-animation: move 5s ease 1s;*/
+    		/*-o-animation: move 5s ease 1s;*/
+    		animation: move 5s ease 1s;
+    	}
+    	@keyframes move{
+    		form {
+				transform: translateX(0);
+    		}
+    		to {
+    			transform: translateX(500px);
+    		}
+    	}
+    </style>
+</head>
+<body>
+    <div class="go"></div>
+</body>
+<script>
+//     function randomFrom(lowerValue,upperValue)
+// {
+//  return Math.floor(Math.random() * (upperValue - lowerValue + 1) + lowerValue);
+// }
+//     alert(randomFrom(2,6));
+
+function showReturn () {
+    let a = 2
+    function re () {
+        console.log(a)
+    }
+    return re
+}
+
+console.log(showReturn())
+
+</script>
+</html>
