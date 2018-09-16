@@ -67,15 +67,14 @@
 		function $(id){
 			return document.getElementById(id);
 		}
+
 		for(var i=0;i<$("barrage").offsetHeight/20 - 1;i++){
 			num.splice(i,0,i);//将整个显示框划分成多个块，并对每个块进行标号
-			//console.log(num)
+			console.log(num)
 		}
-		//console.log(num)
-		//console.log(num.length)
- 
+
 		window.onload = function(){//加载页面发生的事件
- 
+
 			clearInterval(timer);//清除定时器
 			for(var i = 0;i<10;i++){
 				setTimeout(function(){
@@ -88,21 +87,21 @@
 		}
  
 		function create(w){//创建一个弹幕
-				var node=document.createElement("div");//创建一个div元素，用来存储弹幕的信息
-				//console.log(words.length)
-				node.innerHTML=w;
-				//console.log($("barrage").offsetHeight)
-				var t= random(0,num.length-1);
-				//console.log(num)
-				node.style.top=num[t]*20+"px";//从划分的块中随机选中一块。
-				Delete(num[t]);//删除已被选中的块
-				//console.log(t)
-				//console.log(node.style.top);
-				node.style.left="800px";
-				node.style.color="#"+randomColor();//随机颜色
-				$("barrage").appendChild(node);//插入子节点
-				flag++;//创建了一个新弹幕时，更新为0
-				//console.log(node.offsetLeft)
+			var node=document.createElement("div");//创建一个div元素，用来存储弹幕的信息
+			//console.log(words.length)
+			node.innerHTML=w;
+			//console.log($("barrage").offsetHeight)
+			var t= random(0,num.length-1);
+			//console.log(num)
+			node.style.top=num[t]*20+"px";//从划分的块中随机选中一块。
+			Delete(num[t]);//删除已被选中的块
+			//console.log(t)
+			//console.log(node.style.top);
+			node.style.left="800px";
+			node.style.color="#"+randomColor();//随机颜色
+			$("barrage").appendChild(node);//插入子节点
+			flag++;//创建了一个新弹幕时，更新为0
+			//console.log(node.offsetLeft)
 		}
  
 		function move(){
@@ -175,7 +174,7 @@
 			}
 			return color;
 		}
- 
+  
 		function random(m,n){//随机在m、n之间的整数
 			return Math.round(Math.random()*(n - m)) + m;
 		}

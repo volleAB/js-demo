@@ -16,7 +16,7 @@ getText = () => {
 oBut.onclick = () => {
 	let timer = null
 	create()
-	timer = setInterval(move,Math.floor(Math.random()*11)+20)
+	timer = setInterval(move,Math.floor(Math.random()*11)+2000)
 }
 
 move = () => {
