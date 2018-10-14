@@ -14,6 +14,8 @@ oItems.appendChild(img_first.cloneNode(true));
 oItems.insertBefore(img_last.cloneNode(true),oItems.getElementsByClassName("item")[0]);
 var index = 1;
 
+console.log(oItems)
+
 //图片切换函数
 
 function animate(offset){
@@ -83,7 +85,7 @@ oPre.onclick = function(){
 function autoplay(){
     timer = setInterval(function(){
       oNext.onclick();
-    },5000)
+    }, 5000)
 }
 
 function stopautoplay(){

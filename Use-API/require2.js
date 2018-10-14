@@ -27,9 +27,17 @@ const jsonData = {
 	cout: 20
 };
 
-const firstAjax = promise('get', 'https://api.douban.com/v2/movie/top250', jsonData)
+// const firstAjax = promise('get', 'https://api.douban.com/v2/movie/top250', jsonData)
+// firstAjax.then((res) => {
+// 	console.log(res);
+// }).catch((err) => {
+// 	console.log(err);
+// })
+
+const firstAjax = promise('post', 'http://199win.xyz:8000/update/hide', '')
 firstAjax.then((res) => {
 	console.log(res);
 }).catch((err) => {
 	console.log(err);
 })
+

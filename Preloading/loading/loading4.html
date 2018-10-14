@@ -21,13 +21,13 @@
     let options = {
         animationTime: '2s',
         divId: 'circle',
-        divSize: '200px',
+        divSize: '100px',
         infinite: false,
-        loadingBorder: '8px',
-        loadingColor: "#FFF",
-        loadingBackgroundColor: "rgba(255,255,255,.4)",
+        loadingBorder: '4px',
+        loadingColor: '#FFF',
+        loadingBackgroundColor: 'rgba(255,255,255,.4)',
         count: true,
-        countColor: "#FFF"
+        countColor: '#FFF'
     }
     createLoad = (options) => {
         let container = document.getElementById(options.divId)
@@ -53,9 +53,11 @@
             countTxt++
             count.innerText = countTxt + '%'
             if (countTxt < 100) {
-                setTimeout('doCount()', parseInt(options.animationTime)*10)
+                setTimeout(() => {
+                    doCount()
+                }, parseInt(options.animationTime)*10)
             } else {
-                setTimeout('destroy()', 1100)
+                // setTimeout('destroy()', 1100)
             }
         }
         
@@ -121,7 +123,7 @@
         '}\n' +
 
         '@keyframes loadingClip {' +
-        '   0%{clip:rect(0px,200px,200px,100px);}' +
+        '   0%{clip: rect(0px ' + options.divSize + ' ' + options.divSize + ' ' + parseInt(options.divSize)/2 + 'px' + ');}' +
         '   100%{clip:auto;}' +
         '}\n' +
 
