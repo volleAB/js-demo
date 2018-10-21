@@ -1,5 +1,5 @@
 
-function produce (itemCon, aItem, speed, time) {
+function produce (itemCon, aItem, seep, time) {
 
     let thisItemCon = $(itemCon)
     let thisItem = $(aItem)
@@ -29,7 +29,7 @@ function produce (itemCon, aItem, speed, time) {
     }
 
     function goMove () {
-        move(speed, time)
+        move(seep, time)
     }
 
     thisItem.mouseover(() => {
@@ -43,6 +43,6 @@ function produce (itemCon, aItem, speed, time) {
     function startMove () {
         timer = setInterval(goMove, 10)
     }
-
-    startMove()
 }
+
+export { produce }

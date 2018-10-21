@@ -64,8 +64,8 @@ body {
 /*move*/
 
 .s-container {
-    transform: translateX(-150px);
-    transition: all ease-in-out;
+    /*transform: translateX(-150px);*/
+    /*transition: all ease-in-out;*/
     /*-webkit-animation: move  timing-function delay iteration-count direction fill-mode;*/
     /*-o-animation: move  timing-function delay iteration-count direction fill-mode;*/
     /*animation: move  timing-function delay iteration-count direction fill-mode;*/
