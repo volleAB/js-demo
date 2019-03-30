@@ -8,7 +8,6 @@ const promise = (method, url, data) => {
             type: method,
             url,
             dataType:'jsonp',
-            // dataType: 'json',
             data,
             jsonp:'callback',//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
             error: function(XmlHttpRequest, textStatus, errorThrown) {

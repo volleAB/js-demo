@@ -15,7 +15,11 @@ const promise = (url, method, data) => {
     })
 }
 
-let myRequire = promise('http://199win.xyz:8000/update/hide', 'POST', '')
+let data = {
+
+}
+
+let myRequire = promise('http://59.68.29.67:8000/api/uploadFile', 'POST', '')
     .then((res) => {
         console.log(res)
     }).catch((err) => {
